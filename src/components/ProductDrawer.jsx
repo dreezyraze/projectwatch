@@ -26,10 +26,7 @@ export default function ProductDrawer() {
     0
   );
 
-  const totalCount = products.reduce(
-    (sum, item) => sum + item.quantity,
-    0
-  );
+  const totalCount = products.length;
 
   return (
     <Sheet>

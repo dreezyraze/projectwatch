@@ -35,8 +35,8 @@ export default function ProductDrawer() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <button className="relative rounded-full p-3 transition hover:bg-blue-100 hover:text-blue-600">
-          <FaShoppingCart size={22} />
+        <button className="cursor-pointer relative text-gray-200 rounded-full p-3 transition hover:bg-blue-100 hover:text-blue-600">
+          <FaShoppingCart size={25} />
 
           {totalCount > 0 && (
             <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">

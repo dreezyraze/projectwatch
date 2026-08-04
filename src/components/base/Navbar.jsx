@@ -51,16 +51,18 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Icons */}
-        <div className="hidden md:flex items-center gap-5">
-          <Link
-            to="/auth/login"
-            className="text-2xl text-yellow-400 hover:text-white transition"
-          >
-            <FaUser />
-          </Link>
+       <div className="hidden md:flex items-center gap-5 text-2xl">
 
-          <ProductDrawer />
-        </div>
+  <Link
+    to="/auth/login"
+    className="p-2 rounded-full text-yellow-400 hover:text-white hover:bg-yellow-500 transition-all duration-300"
+  >
+    <FaUser />
+  </Link>
+
+  <ProductDrawer />
+
+</div>
 
         {/* Mobile Button */}
         <button

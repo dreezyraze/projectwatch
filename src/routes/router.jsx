@@ -6,9 +6,9 @@ import Contact from "../pages/Contact";
 import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import RegisterForm from "../pages/RegisterForm";
-import Products from "../components/products";
+import Products from "../components/Products";
 import ProductsCardDetails from "../components/ProductsCardDetails";
-import ForgotPassword from "@/pages/ForgotPassword";
+import ForgotPassword from "../pages/ForgotPassword";
 
 
 

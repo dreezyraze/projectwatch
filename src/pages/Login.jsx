@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FaEye,
   FaEyeSlash,
@@ -10,6 +10,7 @@ import {
 import { FcGoogle } from "react-icons/fc";
 
 export default function Login() {
+    const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -57,16 +58,41 @@ export default function Login() {
     setErrors({});
     setLoading(true);
 
-    setTimeout(() => {
-      console.log(formData);
+setTimeout(() => {
 
-      setLoading(false);
+  const savedUser = JSON.parse(
+    localStorage.getItem("user")
+  );
 
-      setFormData({
-        email: "",
-        password: "",
-      });
-    }, 1500);
+
+  if (
+    savedUser &&
+    savedUser.email === formData.email &&
+    savedUser.password === formData.password
+  ) {
+
+    setLoading(false);
+
+    setFormData({
+      email: "",
+      password: "",
+    });
+
+    navigate("/");
+
+  } else {
+
+    setLoading(false);
+
+    setErrors({
+      login: "Email or password is incorrect."
+    });
+
+  }
+
+
+}, 1500);
+
   };
 
   return (
@@ -168,6 +194,12 @@ export default function Login() {
               Forgot Password?
             </Link>
           </div>
+
+{errors.login && (
+  <p className="text-center text-sm text-red-500">
+    {errors.login}
+  </p>
+)}
 
           <button
             type="submit"

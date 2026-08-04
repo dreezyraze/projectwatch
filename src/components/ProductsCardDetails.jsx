@@ -82,7 +82,7 @@ useEffect(() => {
  <img
   src={selectedProduct?.thumbnail}
   alt={selectedProduct?.title}
-  className="w-full max-w-[320px] h-[320px] object-contain mx-auto transition duration-700 hover:scale-110 drop-shadow-2xl"
+  className="w-full max-w-[320px] h-[320px] object-contain p-4 mx-auto transition duration-700 hover:scale-110 drop-shadow-2xl"
 />
 
           <div className="mt-8 flex gap-4 flex-wrap justify-center">
@@ -99,7 +99,7 @@ useEffect(() => {
     thumbnail: images[(watch.id - 1) % images.length],
   });
 }}
-    className={`h-20 w-20 rounded-xl object-cover cursor-pointer border-2 transition duration-300 ${
+    className={`h-20 w-20 rounded-xl object-contain bg-zinc-900 p-2 cursor-pointer border-2 transition duration-300 ${
       selectedProduct?.id === watch.id
         ? "border-yellow-400 scale-110 shadow-lg shadow-yellow-500/30"
         : "border-zinc-700 hover:border-yellow-400"
@@ -124,7 +124,7 @@ useEffect(() => {
           </p>
 
 
-          <h1 className="text-5xl font-black mt-4 text-white">
+          <h1 className="text-3xl sm:text-4xl font-black mt-3 text-white">
             {selectedProduct?.title}
           </h1>
 
@@ -143,16 +143,16 @@ useEffect(() => {
 
 
 
-          <p className="mt-8 text-zinc-400 leading-8 text-lg">
+         <p className="mt-5 text-zinc-400 leading-6 text-sm sm:text-base">
             {selectedProduct?.description}
           </p>
 
 
 
-          <div className="grid grid-cols-3 gap-4 mt-10">
+          <div className="grid grid-cols-3 gap-2 mt-6">
 
 
-            <div className="bg-zinc-800 border border-yellow-500/10 rounded-2xl p-5 text-center">
+            <div className="bg-zinc-800 border border-yellow-500/10 rounded-2xl p-3 text-center">
               <div className="text-2xl">
                 🚚
               </div>
@@ -165,7 +165,7 @@ useEffect(() => {
 
 
 
-            <div className="bg-zinc-800 border border-yellow-500/10 rounded-2xl p-5 text-center">
+            <div className="bg-zinc-800 border border-yellow-500/10 rounded-2xl p-3 text-center">
 
               <div className="text-2xl">
                 🛡️
@@ -179,7 +179,7 @@ useEffect(() => {
 
 
 
-            <div className="bg-zinc-800 border border-yellow-500/10 rounded-2xl p-5 text-center">
+            <div className="bg-zinc-800 border border-yellow-500/10 rounded-2xl p-3 text-center">
 
               <div className="text-2xl">
                 📦
@@ -197,25 +197,22 @@ useEffect(() => {
 
 
 
-          <div className="mt-10 flex items-center gap-5">
+    <div className="mt-5 flex items-center gap-2">
 
+<span className="text-xl sm:text-2xl font-bold text-yellow-400">
+  ${selectedProduct?.price}
+</span>
 
-            <span className="text-5xl font-black text-yellow-400">
-              ${selectedProduct?.price?.toFixed(2)}
-            </span>
+<span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold">
+  15% OFF
+</span>
 
-
-            <span className="bg-yellow-500 text-black px-4 py-2 rounded-full font-bold">
-              15% OFF
-            </span>
-
-
-          </div>
+</div>
 
 
 
 
-          <div className="flex flex-col sm:flex-row gap-5 mt-10">
+          <div className="flex flex-col sm:flex-row gap-5 mt-6">
 
 
         <button

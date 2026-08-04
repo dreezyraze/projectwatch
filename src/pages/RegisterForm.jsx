@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterForm() {
-  
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
   name: "",
   surname: "",
@@ -11,6 +12,8 @@ export default function RegisterForm() {
   password: "",
   confirmPassword: "",
 });
+
+
 
 const [errors, setErrors] = useState({});
 
@@ -67,6 +70,11 @@ const handleSubmit = (e) => {
 
   console.log(formData);
 
+localStorage.setItem(
+  "user",
+  JSON.stringify(formData)
+);
+
   setFormData({
     name: "",
     surname: "",
@@ -74,6 +82,7 @@ const handleSubmit = (e) => {
     password: "",
     confirmPassword: "",
   });
+  navigate("/auth/login");
 };
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0b0b0d] px-4 py-6">

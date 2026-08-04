@@ -61,7 +61,9 @@ export default function Navbar() {
     <FaUser />
   </Link>
 
+ <div className="px-6 py-4">
   <ProductDrawer />
+</div>
 
 </div>
 
@@ -76,53 +78,51 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#111111] border-t border-yellow-500">
+        
+       <div className="md:hidden bg-[#111111] border-t border-yellow-500">
 
-          <Link
-            to="/"
-            onClick={() => setMenuOpen(false)}
-            className="block px-6 py-4 text-gray-300 hover:text-yellow-400 hover:bg-[#1a1a1a]"
-          >
-            Home
-          </Link>
+  <Link
+    to="/"
+    onClick={() => setMenuOpen(false)}
+    className="block px-6 py-4 text-gray-300 hover:text-yellow-400 hover:bg-[#1a1a1a]"
+  >
+    Home
+  </Link>
 
-          <Link
-            to="/about"
-            onClick={() => setMenuOpen(false)}
-            className="block px-6 py-4 text-gray-300 hover:text-yellow-400 hover:bg-[#1a1a1a]"
-          >
-            About
-          </Link>
+  <Link
+    to="/about"
+    onClick={() => setMenuOpen(false)}
+    className="block px-6 py-4 text-gray-300 hover:text-yellow-400 hover:bg-[#1a1a1a]"
+  >
+    About
+  </Link>
 
-          <Link
-            to="/contact"
-            onClick={() => setMenuOpen(false)}
-            className="block px-6 py-4 text-gray-300 hover:text-yellow-400 hover:bg-[#1a1a1a]"
-          >
-            Contact
-          </Link>
+  <Link
+    to="/contact"
+    onClick={() => setMenuOpen(false)}
+    className="block px-6 py-4 text-gray-300 hover:text-yellow-400 hover:bg-[#1a1a1a]"
+  >
+    Contact
+  </Link>
 
-          <Link
-            to="/products"
-            onClick={() => setMenuOpen(false)}
-            className="block px-6 py-4 text-gray-300 hover:text-yellow-400 hover:bg-[#1a1a1a]"
-          >
-            Products
-          </Link>
+  <Link
+    to="/products"
+    onClick={() => setMenuOpen(false)}
+    className="block px-6 py-4 text-gray-300 hover:text-yellow-400 hover:bg-[#1a1a1a]"
+  >
+    Products
+  </Link>
 
-          <Link
-            to="/auth/login"
-            onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-3 px-6 py-4 text-gray-300 hover:text-yellow-400 hover:bg-[#1a1a1a]"
-          >
-            <FaUser />
-            Login
-          </Link>
+  <Link
+    to="/auth/login"
+    onClick={() => setMenuOpen(false)}
+    className="flex items-center gap-3 px-6 py-4 text-gray-300 hover:text-yellow-400 hover:bg-[#1a1a1a]"
+  >
+    <FaUser />
+    Login
+  </Link>
 
-          <div className="px-6 py-4">
-            <ProductDrawer />
-          </div>
-        </div>
+</div>
       )}
     </nav>
   );

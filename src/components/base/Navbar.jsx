@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaUser, FaBars, FaTimes } from "react-icons/fa";
 import ProductDrawer from "../ProductDrawer";
+import logo from "../../assets/logo.png.png";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,7 +14,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/">
           <img
-            src="./src/assets/logo.png.png"
+            src={logo}
             alt="Logo"
             className="h-12 w-auto hover:scale-105 transition duration-300"
           />

@@ -215,54 +215,54 @@ useEffect(() => {
 
 
 
-          <div className="flex gap-5 mt-10">
+          <div className="flex flex-col sm:flex-row gap-5 mt-10">
+
+
+        <button
+  onClick={() => addBasket(selectedProduct)}
+  className="
+    w-full
+    sm:flex-1
+    flex
+    items-center
+    justify-center
+    gap-2
+    bg-yellow-500
+    text-black
+    py-4
+    px-6
+    rounded-2xl
+    text-lg
+    font-black
+    whitespace-nowrap
+    hover:bg-yellow-400
+    transition
+    shadow-lg
+    shadow-yellow-500/20
+  "
+>
+  🛒 Add to Cart
+</button>
+
 
 
             <button
-
-            onClick={() => addBasket(selectedProduct)}
-
-              className="
-w-full
-sm:flex-1
-bg-yellow-500
-text-black
-py-4
-px-6
-rounded-2xl
-text-lg
-font-black
-whitespace-nowrap
-hover:bg-yellow-400
-transition
-shadow-lg
-shadow-yellow-500/20
-"
-            >
-              🛒 Add to Cart
-
-            </button>
-
-
-
-            <button
-
-              onClick={()=>window.history.back()}
-
-              className="
-              px-8
-              rounded-2xl
-              border
-              border-zinc-700
-              text-white
-              hover:bg-zinc-800
-              transition
-              "
-
-            >
-              ← Back
-
-            </button>
+  onClick={() => window.history.back()}
+  className="
+    w-full
+    sm:w-auto
+    px-8
+    py-4
+    rounded-2xl
+    border
+    border-zinc-700
+    text-white
+    hover:bg-zinc-800
+    transition
+  "
+>
+  ← Back
+</button>
 
 
           </div>

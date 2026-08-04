@@ -7,16 +7,11 @@ export const useProductStore = create((set) => ({
     set((state) => {
       const exists = state.products.find((item) => item.id === product.id);
 
-      if (exists) {
-        return {
-          products: state.products.map((item) =>
-            item.id === product.id
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          ),
-        };
-      }
-
+     if (exists) {
+  return {
+    products: state.products,
+  };
+}
       return {
         products: [...state.products, { ...product, quantity: 1 }],
       };

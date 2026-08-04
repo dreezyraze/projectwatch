@@ -65,7 +65,7 @@ useEffect(() => {
 
     <div className="max-w-7xl mx-auto bg-zinc-900/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-yellow-500/20 overflow-hidden">
 
-      <div className="grid lg:grid-cols-2 gap-12 p-10">
+     <div className="grid lg:grid-cols-2 gap-8 p-5 sm:p-10">
 
 
         {/* LEFT IMAGE */}
@@ -79,12 +79,11 @@ useEffect(() => {
     <FaHeart className="text-yellow-400 text-xl"/>
   </button>
 
-  <img
-      src={selectedProduct?.thumbnail}
-   alt={selectedProduct?.title}
-    className="w-96 h-96 object-contain transition duration-700 hover:scale-110 drop-shadow-2xl"
-  />
-
+ <img
+  src={selectedProduct?.thumbnail}
+  alt={selectedProduct?.title}
+  className="w-full max-w-[320px] h-[320px] object-contain mx-auto transition duration-700 hover:scale-110 drop-shadow-2xl"
+/>
 
           <div className="mt-8 flex gap-4 flex-wrap justify-center">
 
@@ -224,19 +223,21 @@ useEffect(() => {
             onClick={() => addBasket(selectedProduct)}
 
               className="
-              flex-1 
-              bg-yellow-500 
-              text-black 
-              py-4 
-              rounded-2xl 
-              text-lg 
-              font-black
-              hover:bg-yellow-400
-              transition
-              shadow-lg
-              shadow-yellow-500/20
-              "
-
+w-full
+sm:flex-1
+bg-yellow-500
+text-black
+py-4
+px-6
+rounded-2xl
+text-lg
+font-black
+whitespace-nowrap
+hover:bg-yellow-400
+transition
+shadow-lg
+shadow-yellow-500/20
+"
             >
               🛒 Add to Cart
 

@@ -8,8 +8,8 @@ export default function Home() {
       <section className="relative min-h-screen overflow-hidden">
 
         {/* Blur */}
-        <div className="absolute -left-40 top-20 w-96 h-96 bg-yellow-500/20 blur-[180px] rounded-full"></div>
-        <div className="absolute right-0 bottom-0 w-96 h-96 bg-yellow-500/10 blur-[180px] rounded-full"></div>
+        <div className="absolute -left-40 top-20 w-96 h-96 bg-yellow-500/20 blur-[180px] rounded-full pointer-events-none"></div>
+        <div className="absolute right-0 bottom-0 w-96 h-96 bg-yellow-500/10 blur-[180px] rounded-full pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-6 min-h-screen grid lg:grid-cols-2 items-center">
 
@@ -32,18 +32,18 @@ export default function Home() {
               prestige, precision and timeless elegance.
             </p>
 
-            <div className="flex gap-5 mt-10">
+            <div className="relative z-10 flex gap-5 mt-10">
 
               <Link
                 to="/products"
-                className="bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold hover:scale-105 duration-300"
+                className="relative z-10 bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold hover:scale-105 duration-300"
               >
                 Shop Now
               </Link>
 
               <Link
                 to="/about"
-                className="border border-gray-500 px-8 py-4 rounded-full hover:border-yellow-500 hover:text-yellow-500 duration-300"
+                className="relative z-10 border border-gray-500 px-8 py-4 rounded-full hover:border-yellow-500 hover:text-yellow-500 duration-300"
               >
                 Explore
               </Link>

@@ -1,9 +1,10 @@
 import { useProductStore } from "@/zustand/product-store";
 import { FaHeart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Wishlist() {
   const { wishlist, toggleWishlist, addBasket } = useProductStore();
-
+const navigate = useNavigate();
   if (wishlist.length === 0) {
     return (
       <section className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-yellow-950 flex items-center justify-center px-6">
@@ -20,11 +21,11 @@ export default function Wishlist() {
         </p>
 
         <button
-          onClick={() => window.location.href = "/products"}
-          className="mt-8 bg-yellow-500 text-black font-bold px-8 py-4 rounded-xl hover:bg-yellow-400 transition"
-        >
-          Explore Watches
-        </button>
+  onClick={() => navigate("/products")}
+  className="mt-8 bg-yellow-500 text-black font-bold px-8 py-4 rounded-xl hover:bg-yellow-400 transition"
+>
+  Explore Watches
+</button>
 
       </div>
     </section>

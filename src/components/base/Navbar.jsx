@@ -18,21 +18,21 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-gradient-to-r from-black via-[#141414] to-black border-b-2 border-yellow-500 shadow-lg shadow-yellow-500/10">
 
-      <div className="max-w-7xl mx-auto grid grid-cols-3 items-center px-5 py-4">
+      <div className="relative max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
 
         {/* Logo */}
-        <div className="flex justify-start">
+       <div className="flex-shrink-0">
   <Link to="/">
     <img
       src={logo}
       alt="Logo"
-      className="h-12 w-auto hover:scale-105 transition duration-300"
+      className="h-10 sm:h-12 w-auto hover:scale-105 transition duration-300"
     />
   </Link>
 </div>
 
         {/* Desktop Menu */}
-       <div className="hidden md:flex justify-center items-center gap-10 text-[17px] font-medium">
+       <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-10 text-[17px] font-medium">
 
   <Link
     to="/"
@@ -65,7 +65,7 @@ export default function Navbar() {
 </div>
 
         {/* Icons */}
-        <div className="flex justify-end items-center gap-5 text-2xl">
+        <div className="flex items-center gap-2 sm:gap-4 text-xl sm:text-2xl">
 
           <Link
             to="/wishlist"
@@ -82,7 +82,7 @@ export default function Navbar() {
 
           <Link
             to="/auth/login"
-            className="p-2 rounded-full text-yellow-400 hover:text-white hover:bg-yellow-500 transition-all duration-300"
+            className="p-1.5 sm:p-2 rounded-full text-yellow-400 hover:text-white hover:bg-yellow-500 transition-all duration-300"
           >
             <FaUser />
           </Link>
@@ -92,7 +92,7 @@ export default function Navbar() {
           {/* Mobile Burger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-yellow-400 text-2xl"
+           className="md:hidden text-yellow-400 text-xl sm:text-2xl"
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
@@ -138,14 +138,7 @@ export default function Navbar() {
             Products
           </Link>
 
-          <Link
-            to="/wishlist"
-            onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-3 px-6 py-4 text-gray-300 hover:text-red-400 hover:bg-[#1a1a1a]"
-          >
-            <FaHeart />
-            Wishlist
-          </Link>
+         
 
           <Link
             to="/auth/login"

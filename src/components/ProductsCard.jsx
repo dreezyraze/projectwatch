@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useProductStore } from "@/zustand/product-store";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 import watch1 from "../assets/watch1.png";
 import watch2 from "../assets/watch2.png";
@@ -99,24 +99,22 @@ const toggleWishlist = useProductStore((state) => state.toggleWishlist);
         </span>
 
         <button
-          onClick={(e) => {
-            e.stopPropagation();
+  onClick={(e) => {
+    e.stopPropagation();
 
-            toggleWishlist({
-              ...product,
-              thumbnail: images[(product.id - 1) % images.length],
-            });
-          }}
-          className="absolute top-4 right-4 z-10"
-        >
-          <FaHeart
-            className={`text-2xl transition ${
-              isFavorite
-                ? "text-red-500"
-                : "text-white hover:text-red-500"
-            }`}
-          />
-        </button>
+    toggleWishlist({
+      ...product,
+      thumbnail: images[(product.id - 1) % images.length],
+    });
+  }}
+  className="absolute top-4 right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 shadow-lg backdrop-blur transition-all duration-300 hover:scale-110"
+>
+  {isFavorite ? (
+    <FaHeart className="text-red-500 text-xl" />
+  ) : (
+    <FaRegHeart className="text-red-500 text-xl" />
+  )}
+</button>
       </div>
 
       {/* CONTENT */}

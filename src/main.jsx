@@ -1,4 +1,4 @@
-
+import { Toaster } from "react-hot-toast";
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
@@ -8,6 +8,17 @@ const queryClient = new QueryClient()
 
 createRoot(document.getElementById('root')).render(
   <QueryClientProvider client={queryClient}>
-    <App />
- </QueryClientProvider>
+  <App />
+  <Toaster
+    position="top-center"
+    toastOptions={{
+      duration: 2500,
+      style: {
+        background: "#18181b",
+        color: "#fff",
+        border: "1px solid #eab308",
+      },
+    }}
+  />
+</QueryClientProvider>
 )

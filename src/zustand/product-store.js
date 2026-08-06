@@ -1,7 +1,11 @@
 import { create } from "zustand";
 
 export const useProductStore = create((set) => ({
+  // Basket
   products: [],
+
+  // Wishlist
+  wishlist: [],
 
   addBasket: (product) =>
     set((state) => {
@@ -61,4 +65,28 @@ export const useProductStore = create((set) => ({
     set((state) => ({
       products: state.products.filter((item) => item.id !== id),
     })),
+
+  // ✅ Bütün səbəti sil
+  clearBasket: () =>
+    set({
+      products: [],
+    }),
+
+  // Wishlist əlavə/sil
+  toggleWishlist: (product) =>
+    set((state) => {
+      const exists = state.wishlist.find((item) => item.id === product.id);
+
+      if (exists) {
+        return {
+          wishlist: state.wishlist.filter(
+            (item) => item.id !== product.id
+          ),
+        };
+      }
+
+      return {
+        wishlist: [...state.wishlist, product],
+      };
+    }),
 }));

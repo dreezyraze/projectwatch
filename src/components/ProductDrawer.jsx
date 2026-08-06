@@ -5,9 +5,11 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useProductStore } from "@/zustand/product-store";
+import toast from "react-hot-toast";
 
 export default function ProductDrawer() {
   const products = useProductStore((state) => state.products);
+  
 
   const increaseQuantity = useProductStore(
     (state) => state.increaseQuantity
@@ -20,6 +22,10 @@ export default function ProductDrawer() {
   const removeBasket = useProductStore(
     (state) => state.removeBasket
   );
+
+  const clearBasket = useProductStore(
+  (state) => state.clearBasket
+);
 
   const total = products.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -188,30 +194,68 @@ export default function ProductDrawer() {
 
 
           {/* Footer */}
-          <div className="border-t p-5 sm:p-6">
+          {/* Footer */}
+{products.length > 0 && (
+  <div className="border-t p-5 sm:p-6">
 
+    <div className="mb-5 flex items-center justify-between">
 
-            <div className="mb-5 flex items-center justify-between gap-3">
+      <span className="text-lg font-semibold">
+        Total
+      </span>
 
-              <span className="text-lg font-medium">
-                Total
-              </span>
+      <span className="text-2xl font-bold text-yellow-500">
+        ${total.toFixed(2)}
+      </span>
 
+    </div>
 
-              <span className="whitespace-nowrap text-xl sm:text-2xl font-bold text-indigo-600">
-                ${total.toFixed(2)}
-              </span>
+    <div className="flex gap-3">
 
+      <button
+        onClick={clearBasket}
+        className="
+          flex-1
+          rounded-xl
+          border
+          border-red-500
+          py-3
+          font-bold
+          text-red-500
+          hover:bg-red-500
+          hover:text-white
+          transition
+        "
+      >
+        🗑 Clear Cart
+      </button>
 
-            </div>
+      <button
+        onClick={() => {
+          toast.success("🎉 Thank you for your purchase!");
 
+          setTimeout(() => {
+            clearBasket();
+          }, 2000);
+        }}
+        className="
+          flex-1
+          rounded-xl
+          bg-yellow-500
+          py-3
+          font-bold
+          text-black
+          hover:bg-yellow-400
+          transition
+        "
+      >
+        🛒 Checkout
+      </button>
 
-            <button className="w-full rounded-xl bg-indigo-600 py-3 text-lg font-semibold text-white transition hover:bg-indigo-700">
-              Checkout
-            </button>
+    </div>
 
-
-          </div>
+  </div>
+)}
 
 
         </div>

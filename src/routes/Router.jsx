@@ -9,6 +9,7 @@ import RegisterForm from "../pages/RegisterForm";
 import Products from "../components/Products";
 import ProductsCardDetails from "../components/ProductsCardDetails";
 import ForgotPassword from "../pages/ForgotPassword";
+import Wishlist from "@/pages/Wishlist";
 
 
 
@@ -21,7 +22,8 @@ export const router = createBrowserRouter([
             {path:"about",element:<About/>},
             {path:"contact",element:<Contact/>},
             {path:"products",element:<Products />},
-            {path:"products/:id",element:<ProductsCardDetails/>}
+            {path:"products/:id",element:<ProductsCardDetails/>},
+            { path: "wishlist", element: <Wishlist/> }
         ]
     },
       {

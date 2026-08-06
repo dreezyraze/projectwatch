@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
+
 import {
   getProductById,
   getWatches,
 } from "../axios/fetch/product";
 import { useProductStore } from "@/zustand/product-store";
+import { motion } from "framer-motion";
 
 import watch1 from "../assets/watch1.png";
 import watch2 from "../assets/watch2.png";
@@ -24,9 +26,16 @@ export default function ProductsCardDetails() {
 
   const navigate = useNavigate();
   const addBasket = useProductStore((state) => state.addBasket);
-  const { id } = useParams();
+  
+const wishlist = useProductStore((state) => state.wishlist);
+const toggleWishlist = useProductStore((state) => state.toggleWishlist);
+
+const { id } = useParams();
 
 const [selectedProduct, setSelectedProduct] = useState(null);
+const isFavorite = wishlist.some(
+  (item) => item.id === selectedProduct?.id
+);
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["product", id],
@@ -75,9 +84,27 @@ useEffect(() => {
 
          
 
-          <button className="absolute top-6 right-6 h-12 w-12 rounded-full bg-zinc-900 border border-yellow-500/30 flex items-center justify-center hover:scale-110 transition">
-    <FaHeart className="text-yellow-400 text-xl"/>
-  </button>
+        <motion.button
+  whileTap={{ scale: 1.4, rotate: 360 }}
+  animate={{
+    scale: isFavorite ? [1, 1.4, 1] : 1,
+  }}
+  transition={{
+    duration: 0.4,
+    type: "spring",
+    stiffness: 250,
+  }}
+  onClick={() => toggleWishlist(selectedProduct)}
+  className="absolute top-6 right-6 h-12 w-12 rounded-full bg-zinc-900/80 backdrop-blur-md border border-yellow-500/30 flex items-center justify-center hover:shadow-lg hover:shadow-red-500/40 transition"
+>
+  <FaHeart
+    className={`text-2xl transition-all duration-300 ${
+      isFavorite
+        ? "text-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.9)]"
+        : "text-white hover:text-red-500"
+    }`}
+  />
+</motion.button>
 
  <img
   src={selectedProduct?.thumbnail}
